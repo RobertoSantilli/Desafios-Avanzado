@@ -1,5 +1,5 @@
-import { Homepage } from "C:/curso-cypress/Desafios-avanzado/cypress/support/pages/Homepage"
-import { Productspage } from "C:/curso-cypress/Desafios-avanzado/cypress/support/pages/Productspage"
+import { Homepage } from "../../support/pages/Homepage";
+import { Productspage } from "../../support/pages/Productspage";
 
 describe('Desafio 1 Avanzado', () => {
 
@@ -15,7 +15,7 @@ before('Cargar TestData', () => {
 });
 
 beforeEach('Inicio de sesion en PushingIT', () =>{
-    cy.Userlogin(Cypress.env().user, Cypress.env().password);
+    cy.userlogin(Cypress.env().user, Cypress.env().password);
     cy.visit('');
 });
 
@@ -31,14 +31,14 @@ it('Deberia Agregar un producto nuevo en Online Shop, buscarlo por su ID, elimin
     productpage.closemessagealert();
     productpage.selecttypeofsearch('id');
     productpage.searchaproduct(`${data.product.id}{enter}`);
-    productpage.verifyproductname(data.product.name).should('have.text',"Chaqueta Negra");
-    productpage.verifyproductprice(data.product.price).should('have.text','150');
+    productpage.verifyproductname(data.product.name).should('have.text',data.product.name);
+    productpage.verifyproductprice(data.product.price).should('have.text',data.product.price);
     
-    cy.Getproductid(data.product.id).then((response) =>{
+    cy.getproductid(data.product.id).then((response) =>{
         expect(response.status).eq(200);
-        expect(response.body.products.docs[0].name).to.be.equal("Chaqueta Negra");
-        expect(response.body.products.docs[0].price).eq(150);
-        expect(response.body.products.docs[0].id).eq(1987);      
+        expect(response.body.products.docs[0].name).to.be.equal(data.product.name);
+        expect(response.body.products.docs[0].price).eq(data.product.price);
+        expect(response.body.products.docs[0].id).eq(data.product.id);      
     });
 
     productpage.clickondeleteproduct(data.product.name);
@@ -47,7 +47,7 @@ it('Deberia Agregar un producto nuevo en Online Shop, buscarlo por su ID, elimin
     productpage.searchaproduct(`{enter}`);
     productpage.checkproductsfound().should('have.prop', 'childElementCount', 0);
     
-    cy.Getproductid(data.product.id).then((response) =>{
+    cy.getproductid(data.product.id).then((response) =>{
         expect(response.body.products.totalDocs).eq(0);
     });
     

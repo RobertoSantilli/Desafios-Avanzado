@@ -1,6 +1,6 @@
 const baseAPIUrl= 'https://pushing-it-3.onrender.com/api';
 
-Cypress.Commands.add('Userlogin', (user, password) => {
+Cypress.Commands.add('userlogin', (user, password) => {
     cy.request({
         method: 'POST',
         url: `${baseAPIUrl}/login`,
@@ -17,7 +17,7 @@ Cypress.Commands.add('Userlogin', (user, password) => {
     })
 });
 
-Cypress.Commands.add('Getproductid', (id) => {
+Cypress.Commands.add('getproductid', (id) => {
     return cy.request({
             method: 'GET',
             url: `${baseAPIUrl}/products?id=${id}`,
