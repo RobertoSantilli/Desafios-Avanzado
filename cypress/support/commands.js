@@ -1,9 +1,9 @@
-const baseAPIUrl= 'https://pushing-it-3.onrender.com/api';
+import './Request/onlineshop';
 
 Cypress.Commands.add('userlogin', (user, password) => {
     cy.request({
         method: 'POST',
-        url: `${baseAPIUrl}/login`,
+        url: `${Cypress.env().base_url_api}/login`,
         body: {
             username : user,
             password: password
@@ -17,12 +17,3 @@ Cypress.Commands.add('userlogin', (user, password) => {
     })
 });
 
-Cypress.Commands.add('getproductid', (id) => {
-    return cy.request({
-            method: 'GET',
-            url: `${baseAPIUrl}/products?id=${id}`,
-            headers: {
-                Authorization: `Bearer ${Cypress.env().token}`,
-            }
-        });
-});

@@ -12,7 +12,8 @@ module.exports = defineConfig({
   env: {
     user: 'pushingit',
     password: '123456!',
-    token: null
+    token: null,
+    base_url_api: 'https://pushing-it-3.onrender.com/api'
   }
   },
   
