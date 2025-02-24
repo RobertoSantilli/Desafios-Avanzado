@@ -1,4 +1,6 @@
 import './Request/onlineshop';
+import './Intercept/onlineshop';
+import './Intercept/checkoutpage';
 
 Cypress.Commands.add('userlogin', (user, password) => {
     cy.request({
@@ -17,3 +19,6 @@ Cypress.Commands.add('userlogin', (user, password) => {
     })
 });
 
+Cypress.Commands.add('connectDataBase', (query) => {
+    cy.task('connectDB', query);
+});

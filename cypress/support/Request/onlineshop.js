@@ -10,6 +10,24 @@ Cypress.Commands.add('getproductid', (id) => {
         });
     });
 
+    Cypress.Commands.add('getproducts', () => {
+        return cy.request({
+                method: 'GET',
+                url: `${Cypress.env().base_url_api}/products`,
+
+                qs: {
+                    page: '2',
+                    limit: '8'
+                },
+
+                headers: {
+                    Authorization: `Bearer ${Cypress.env().token}`,
+                }
+            }).then(response => {
+                expect(response.status).eq(200);
+            });
+        });
+
 Cypress.Commands.add('deleteproductby_id', (_id) => {
     return cy.request({
             method: 'DELETE',

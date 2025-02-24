@@ -6,10 +6,23 @@
     "id": 1987
 },
 
+"product_1988": {
+        "name": "Reloj Blanco",
+        "price": 100,
+        "imageurl": "https://static.dafiti.com.co/p/casio-7602-4160301-1-product.jpg",
+        "id": 1988
+    },
+
 "product_1000": {
     "name": "Buzo Negro",
     "price": 23.76,
     "imageurl": "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F79%2Fdc%2F79dc285a8de65daa047c7e6d8fecb475420f9664.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmobilemain%5D",
     "id": 1000
+},
+
+"user": {  
+    "name": "Roberto",
+    "lastname": "Santilli",
+    "creditcard": 1234123412341234
 }
 }

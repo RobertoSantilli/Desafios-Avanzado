@@ -6,6 +6,7 @@ export class Productspage {
         this.closebuttonalert = '#closeModal';
         this.gotoshoppingcartbutton = '#goShoppingCart';
         this.addnewproductbutton = '[data-cy="add-product"]';
+        this.saveeditproductbutton = '[data-cy="saveEdit"]';
         this.newproductname = '[data-cy="productName"]';
         this.newproductprice = '[data-cy="productPrice"]';
         this.newproductimage = '#productCard';
@@ -30,6 +31,15 @@ export class Productspage {
        
     };
     
+    editproductbutton(productid){
+        cy.get(`button[data-cy="edit-${productid}"]`).click();
+        
+     };
+
+     clickonsaveeditproductbutton(){
+        cy.get(this.saveeditproductbutton).click();
+     }
+
     closemessagealert(){
        cy.get(this.closebuttonalert, {timeout: 5000}).click();
     };
