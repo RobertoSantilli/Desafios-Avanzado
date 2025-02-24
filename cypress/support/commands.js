@@ -28,9 +28,9 @@ Cypress.Commands.add('loginwithsession', (user,password,sessionname) => {
             },
         }).then((response) => {
             window.localStorage.setItem('token', response.body.token);
-            window.localStorage.setItem('username', response.body.user.username);
-            window.localStorage.setItem('_id', response.body.user._id);
-            Cypress.env().token = response.body.token;
+        window.localStorage.setItem('user', response.body.user.username);
+        window.localStorage.setItem('userId', response.body.user._id);
+        Cypress.env().token = window.localStorage.getItem('token');
         })
   },
     {
