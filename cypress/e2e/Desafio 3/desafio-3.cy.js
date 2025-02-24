@@ -16,12 +16,13 @@ const reciptpage = new Reciptpage();
 
 const constants = require('../../support/constants');
 
-before('Cargar Testthis.data', () => {
+before('Cargar Test Data', () => {
     cy.userlogin(Cypress.env().user, Cypress.env().password);
     cy.fixture('products').as('data'); 
 });
 
-it('prueba', function () {
+it(`Por API: Hacer Login, crear dos productos nuevos (eliminarlos primero si existen), por Front-End: Realizar la compra de los dos productos con dos cantidades cada uno y 
+    verificar el registro de la compra en la Base de Datos de SQL`, function () {
 
     cy.getproductid(this.data.product_1987.id).its('body.products.docs').each((product) => {
         this.data.product_1987._id = product._id;
